@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     static ArrayList<String> records = new ArrayList<>();
+
     public static void main(String[] args) {
         Scanner inport = new Scanner(System.in);
         while (true) {
@@ -22,13 +23,21 @@ public class Main {
                     String amount = inport.nextLine();
                     System.out.println("请输入备注：");
                     String note = inport.nextLine();
-                    records.add(type+"|"+amount+"|"+note);
+                    records.add(type + "|" + amount + "|" + note);
                     System.out.println(records);
                     System.out.println("记账成功");
 
                     break;
                 case "2":
                     System.out.println("2 查看全部");
+                    if (records.size() == 0) {
+                        System.out.println("还没有账单");
+                        break;
+                    }
+                    for (int i = 0; i < records.size(); ++i) {
+                        System.out.print(i + 1 + "  ");
+                        System.out.println(records.get(i));
+                    }
                     break;
                 case "3":
                     System.out.println("3 删除");

@@ -48,6 +48,29 @@ public class Main {
                     break;
                 case "3":
                     System.out.println("3 删除");
+                    for(int i = 0 ; i <  records.size();++i){
+                        System.out.print(i+1+"  ");
+                        System.out.println(records.get(i));
+                    }
+                    System.out.println("请输入要删除的序号：");
+                    String indexText = inport.nextLine();
+                    int index = Integer.parseInt(indexText);
+                    if(index>=records.size()+1||index<=0){
+                        System.out.println("没有这一条");
+                        break;
+                    }
+                    else {
+                        records.remove(index-1);
+                        System.out.println("删除成功");
+                        if(records.size()==0) System.out.println("数据已空");
+                        else {
+                            for(int i = 0 ; i <  records.size();++i){
+                                System.out.print(i+1+"  ");
+                                System.out.println(records.get(i));
+                            }
+                        }
+                    }
+
                     break;
                 case "4":
                     System.out.println("4 退出");

@@ -34,10 +34,17 @@ public class Main {
                         System.out.println("还没有账单");
                         break;
                     }
+                    double total = 0 ;
+
                     for (int i = 0; i < records.size(); ++i) {
                         System.out.print(i + 1 + "  ");
                         System.out.println(records.get(i));
+                        String line = records.get(i);
+                        String[] parts = line.split("\\|");
+                        String amountText = parts[1];
+                        total+= Double.parseDouble(amountText);
                     }
+                    System.out.println("总金额："+total);
                     break;
                 case "3":
                     System.out.println("3 删除");

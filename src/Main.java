@@ -19,8 +19,22 @@ public class Main {
                     System.out.println("1 记一笔");
                     System.out.println("请输入类型：");
                     String type = inport.nextLine();
-                    System.out.println("请输入金额：");
-                    String amount = inport.nextLine();
+                    String amount = "";
+                    while(true){
+                        System.out.println("请输入金额：");
+                        amount = inport.nextLine();
+                        try {
+                            double value = Double.parseDouble(amount);   // 这回接住返回值
+                            if (value < 0) {                             // ← 业务关：负数拦截
+                                System.out.println("金额不能是负数！");
+                                continue;
+                            }
+                            break;
+                        }catch(NumberFormatException e ){
+                            System.out.println("金额必须是数字！");
+                            continue;
+                        }
+                    }
                     System.out.println("请输入备注：");
                     String note = inport.nextLine();
                     records.add(type + "|" + amount + "|" + note);

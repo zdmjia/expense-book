@@ -1,4 +1,5 @@
 
+import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -51,20 +52,22 @@ public class Main {
                     double total = 0;
 
                     for (int i = 0; i < records.size(); ++i) {
-                        System.out.print(i + 1 + "  ");
-                        System.out.println(records.get(i));
                         String line = records.get(i);
                         String[] parts = line.split("\\|");
+                        double money = Double.parseDouble(parts[1]);
+                        System.out.printf("%2d %-8s %8.2f %s%n",i+1,parts[0],money,parts[2]);
                         String amountText = parts[1];
                         total += Double.parseDouble(amountText);
                     }
-                    System.out.println("总金额：" + total);
+                    System.out.printf("总金额：%.2f%n", total);
                     break;
                 case "3":
                     System.out.println("3 删除");
                     for (int i = 0; i < records.size(); ++i) {
-                        System.out.print(i + 1 + "  ");
-                        System.out.println(records.get(i));
+                        String line = records.get(i);
+                        String[] parts = line.split("\\|");
+                        double money = Double.parseDouble(parts[1]);
+                        System.out.printf("%2d %-8s %8.2f %s%n",i+1,parts[0],money,parts[2]);
                     }
                     while (true) {
                         if (records.size() == 0) {
@@ -86,8 +89,10 @@ public class Main {
                                 if (records.size() == 0) System.out.println("数据已空");
                                 else {
                                     for (int i = 0; i < records.size(); ++i) {
-                                        System.out.print(i + 1 + "  ");
-                                        System.out.println(records.get(i));
+                                        String line = records.get(i);
+                                        String[] parts = line.split("\\|");
+                                        double money = Double.parseDouble(parts[1]);
+                                        System.out.printf("%2d %-8s %8.2f %s%n",i+1,parts[0],money,parts[2]);
                                     }
                                 }
                             }
